@@ -3,7 +3,9 @@ import { BehaviorSubject } from "rxjs";
 import { User } from "../models/user.model";
 
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserState {
 
   private updating$ = new BehaviorSubject<boolean>(false);

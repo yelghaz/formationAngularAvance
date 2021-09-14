@@ -4,7 +4,9 @@ import { UsersService } from "./api/users.api";
 import { User } from "./models/user.model";
 import { UserState } from "./state/users.state";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root'
+  })
 export class UsersFacade {
 
  
