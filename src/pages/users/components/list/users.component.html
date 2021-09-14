@@ -1,0 +1,5 @@
+<p *ngFor="let user of users$ | async"><a style="margin-right: 15px" routerLink="/users/{{user.id}}">{{user.name}}</a> <button (click)="removeUser(user)">Retirer</button></p>
+<button type="button" (click)="addUser()">Ajouter</button>
+<br/>
+<br/>
+<a routerLink="/home">Page users</a>
