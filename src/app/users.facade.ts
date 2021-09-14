@@ -29,8 +29,8 @@ export class UsersFacade {
         return this.userState.getUsers$();
     }
 
-    getUser(userId: any): User {
-       return this.userState.getUser(userId);
+    getUser(userId: any): Observable<User> {
+       return this.userService.getUser(userId);
     }
 
     /**

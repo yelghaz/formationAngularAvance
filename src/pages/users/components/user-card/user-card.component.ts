@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 
 @Component({
@@ -8,7 +9,7 @@ import { User } from 'src/app/models/user.model';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserCardComponent implements OnInit {
-  @Input() user: any;
+  @Input() user$: Observable<User> = of();
 
   constructor() { }
 

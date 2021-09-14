@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { UsersFacade } from 'src/app/users.facade';
 
@@ -11,7 +11,7 @@ import { UsersFacade } from 'src/app/users.facade';
 })
 export class UserDetailComponent implements OnInit {
 
-  user!: User;
+  user$: Observable<User> = of();
 
   constructor(private actRoute: ActivatedRoute, private facade: UsersFacade) {
     facade.loadUsers();
@@ -19,7 +19,7 @@ export class UserDetailComponent implements OnInit {
   
   ngOnInit(): void {
       let id = this.actRoute.snapshot.params.id;
-      this.user = this.facade.getUser(id)
+      this.user$ = this.facade.getUser(id);
   }
 
 }
