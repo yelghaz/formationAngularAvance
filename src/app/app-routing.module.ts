@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './components/app.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from 'src/pages/admin/guards/admin.guard';
 
 const routes: Routes = [
-  { path: '', component: AppComponent, },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
     path: 'home',
     loadChildren: () => import('../pages/home/home.module')
@@ -14,10 +14,17 @@ const routes: Routes = [
     loadChildren: () => import('../pages/users/users.module')
       .then(mod => mod.UsersModule)
   },
+  { path: 'admin', 
+  loadChildren: () => import('../pages/admin/admin.module')
+      .then(m => m.AdminModule),
+    canLoad: [AdminGuard] },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules,
+    enableTracing: true
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { 

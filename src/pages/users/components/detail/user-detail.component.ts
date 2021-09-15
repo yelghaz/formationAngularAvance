@@ -14,7 +14,6 @@ export class UserDetailComponent implements OnInit {
   user$: Observable<User> = of();
 
   constructor(private actRoute: ActivatedRoute, private facade: UsersFacade) {
-    facade.loadUsers();
   }
   
   ngOnInit(): void {
