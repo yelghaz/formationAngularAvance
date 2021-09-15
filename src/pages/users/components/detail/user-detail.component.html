@@ -1,3 +1,9 @@
 
-<app-user-card [user$]="user$"></app-user-card>
+<div *ngIf="user$ | async as user">
+<app-user-card [user$]="user$">
+    <div header>{{user?.name}}</div>
+    <div body>{{user?.name}}</div>
+    <div footer>Contact : {{user?.email}}</div>
+</app-user-card>
+</div>
 

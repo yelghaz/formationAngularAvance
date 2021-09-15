@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, ViewChild } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import {Location} from '@angular/common'; 

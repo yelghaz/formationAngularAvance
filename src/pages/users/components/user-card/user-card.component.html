@@ -1,5 +1,15 @@
-<div *ngIf="user$ | async as user">
-    {{user.name}}
+<div *ngIf="user$ | async as user" style="width: 300px; height: 150px; background-color: white; border: 1px solid gray; border-radius: 10px;"> 
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <ng-content select="[header]"></ng-content>
+    </div>
+    <hr/>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <ng-content select="[body]"></ng-content>
+    </div>
+    <hr/>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <ng-content select="[footer]"></ng-content>
+    </div>
     <!-- <button (click)="setloc(user?.id)">Suivant</button> -->
 </div>
 
