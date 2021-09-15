@@ -17,6 +17,9 @@ export class UserDetailComponent implements OnInit {
   }
   
   ngOnInit(): void {
+    // on peut stocker des infos dans le activated route, 
+    //ici c'est le resolver qui a stocker l'objet user.
+    console.log("user snapshot ", this.actRoute.snapshot.data.user);
       let id = this.actRoute.snapshot.params.id;
       this.user$ = this.facade.getUser(id);
   }

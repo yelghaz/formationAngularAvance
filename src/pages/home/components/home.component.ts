@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { User } from 'src/app/models/user.model';
-import { UsersFacade } from 'src/app/users.facade';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +7,5 @@ import { UsersFacade } from 'src/app/users.facade';
 })
 export class HomeComponent {
 
-  constructor() {}
 
 }

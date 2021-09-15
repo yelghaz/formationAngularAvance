@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { UsersService } from "./api/users.api";
 import { User } from "./models/user.model";
 import { UserState } from "./state/users.state";
@@ -9,7 +9,7 @@ import { UserState } from "./state/users.state";
   })
 export class UsersFacade {
 
- 
+ user!: User;
     constructor(private userService: UsersService, private userState: UserState) {}
     
     /**
@@ -32,7 +32,13 @@ export class UsersFacade {
     }
 
     getUser(userId: any): Observable<User> {
+        if(this.user)
+        return of(this.user)
+        else
        return this.userService.getUser(userId);
+    }
+    setUser(user: any){
+        this.user = user;
     }
 
     /**
