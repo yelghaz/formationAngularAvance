@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ExtraOptions, RouterModule, Routes } from '@angular/router';
+import { TootipDirective } from 'src/app/directives/tootip.directive';
 import { SharedModule } from 'src/shared/shared.module';
 import { UserDetailComponent } from './components/detail/user-detail.component';
 import { UsersComponent } from './components/list/users.component';
@@ -15,7 +16,7 @@ const routes: Routes = [
   } */}
 ];
 @NgModule({
-  declarations: [UsersComponent, UserDetailComponent, UserCardComponent],
+  declarations: [UsersComponent, UserDetailComponent, UserCardComponent, TootipDirective],
   imports: [
     SharedModule,
     RouterModule.forChild(routes)

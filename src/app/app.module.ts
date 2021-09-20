@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CoreModule } from '../core/core.module';
 import { HomeModule } from '../pages/home/home.module';
 import { UsersModule } from '../pages/users/users.module';
+import { TootipDirective } from './directives/tootip.directive';
 
 
 @NgModule({
@@ -22,6 +23,6 @@ import { UsersModule } from '../pages/users/users.module';
     UsersModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
