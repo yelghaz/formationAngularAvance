@@ -6,6 +6,6 @@ import { Injectable } from "@angular/core";
 export class AdminService {
 
     public isAdmin() {
-        return true;
+        return false;
     }
 }
