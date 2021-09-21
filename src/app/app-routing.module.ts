@@ -21,6 +21,9 @@ const routes: Routes = [
 
   { path: 'tickets', loadChildren: () => import('../pages/tickets/tickets.module')
   .then(m => m.TicketsModule) },
+
+  { path: 'auth', loadChildren: () => import('../pages/authentication/auth.module')
+  .then(m => m.AuthModule) },
 ];
 
 @NgModule({

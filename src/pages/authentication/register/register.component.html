@@ -1,0 +1,22 @@
+<form [formGroup]="registerForm" style="display: flex; flex-direction: column; width: 500px;" (ngSubmit)="register()">
+    <input formControlName="firstname" type="text" placeholder="Prénom"/>
+    <span *ngIf="registerForm?.get('firstname')?.invalid && registerForm?.get('firstname')?.touched">Prénom</span>
+    <span *ngIf="registerForm?.get('firstname')?.hasError('minlength') && registerForm?.get('firstname')?.touched">2 caractères minimum</span>
+    <input formControlName="lastname" type="text" placeholder="Nom"/>
+    <span *ngIf="registerForm?.get('lastname')?.invalid && registerForm?.get('lastname')?.touched">Nom obligatoire</span>
+    <span *ngIf="registerForm?.get('lastname')?.hasError('minlength') && registerForm?.get('lastname')?.touched">2 caractères minimum</span>
+    <input formControlName="username" type="email" placeholder="Adresse username"/>
+    <span *ngIf="registerForm?.get('username')?.invalid && registerForm?.get('username')?.touched">Email incorrect</span>
+    <input formControlName="password" type="password" placeholder="Mot de passe"/>
+    <span *ngIf="registerForm?.get('password')?.hasError('required') && registerForm?.get('password')?.touched">Mot de passe obligatoire</span>
+    <span *ngIf="registerForm?.get('password')?.hasError('minlength') && registerForm?.get('password')?.touched">Le mot de passe doit avoir 8 caractères minimum</span>
+    <button [disabled]="registerForm.invalid">Se connecter</button>
+</form>
+<br/>
+<a [routerLink]="['/login']" >J'ai déjà un compte'</a>
+<br/>
+<h4>Utilisateurs inscris </h4>
+<br/>
+<p *ngFor="let user of users">
+{{user.firstname}}
+</p>

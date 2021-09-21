@@ -12,6 +12,17 @@ export class UsersService {
 
   constructor(private http: HttpClient) { }
 
+
+  fakeGetUser() {
+    return this.http.get<User[]>("https://jsonplaceholder.typicode.com/users");
+  }
+  fakeLoginUser(user: any) {
+    return this.http.post<User[]>("https://jsonplaceholder.typicode.com/users/authenticate", user);
+  }
+  fakeRegisterUser(user: any) {
+    return this.http.post<User[]>("https://jsonplaceholder.typicode.com/users/register", user);
+  }
+
   /**
    * 
    */

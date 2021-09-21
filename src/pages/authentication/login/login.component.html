@@ -1,0 +1,12 @@
+<form [formGroup]="loginForm" style="display: flex; flex-direction: column; width: 500px;" (ngSubmit)="login()">
+    <input formControlName="username" type="email" placeholder="Adresse username"/>
+    <span *ngIf="loginForm?.get('username')?.invalid && loginForm?.get('username')?.touched">Email incorrect</span>
+    <input formControlName="password" type="password" placeholder="Mot de passe"/>
+    <span *ngIf="loginForm?.get('password')?.hasError('required') && loginForm?.get('password')?.touched">Mot de passe obligatoire</span>
+    <span *ngIf="loginForm?.get('password')?.hasError('minlength') && loginForm?.get('password')?.touched">Le mot de passe doit avoir 8 caractères minimum</span>
+    <button [disabled]="loginForm.invalid">Se connecter</button>
+</form>
+<br/>
+<a [routerLink]="['/register']" >Je n'ai pas encore de compte ?</a>
+<br/>
+<button (click)="deconnect()">Se déconnecter</button>
